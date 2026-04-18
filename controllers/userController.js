@@ -22,13 +22,11 @@ const login = async (req, res) => {
         if (found) {
             const chkPassword = await bcrypt.compare(password, found.password);
             if (chkPassword) {
-                const user = {
-                    name: found.name,
-                    email: found.email,
-                    role: found.role
-                };
-                const token = jwt.sign(user, SECRET, { expiresIn: "1h" });
+                const token = jwt.sign({ id: found._id, role: found.role }, process.env.JWT_SECRET, { expiresIn: "1h" });
+
                 res.status(200).json({ message: "Login Success", token });
+            } else {
+                res.status(400).json({ message: "Invalid password" });
             }
         } else {
             res.status(400).json({ message: "User not found" });
@@ -38,6 +36,7 @@ const login = async (req, res) => {
         res.status(500).json({ message: "Server Error" });
     }
 };
+
 const showUsers = async (req, res) => {
     const result = await userModel.find();
     res.status(200).json(result);

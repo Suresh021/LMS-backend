@@ -3,7 +3,10 @@ const userSchema = mongoose.Schema({
     name: { type: String, required: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
-    role: { type: String, default: "user" },
-});
-const userModel = mongoose.model("users", userSchema)
+    role: { type: String, enum: ["admin", "instructor", "student"], default: "student" },
+    enrolledCourses: [{ type: mongoose.Schema.Types.ObjectId, ref: "Course" }]
+},
+    { timestamps: true }
+);
+const userModel = mongoose.model("user", userSchema)
 export default userModel
