@@ -1,12 +1,16 @@
 # 🎓 EduCore Backend System
 
-🚀 A scalable and modular backend system for a Learning Management Platform (LMS), built using Node.js and Express.js. This project handles user authentication, course management, and student progress tracking with clean architecture and RESTful APIs.
+🚀 A scalable and modular backend system for a Learning Management Platform (LMS), built using Node.js and Express.js.
+
+This project handles user authentication, course management, and student progress tracking using clean architecture and RESTful APIs.
 
 ---
 
 ## 📌 Project Overview
 
-EduCore Backend System is designed to simulate a real-world backend for an educational platform. It focuses on:
+EduCore Backend System is designed to simulate a real-world backend for an educational platform.
+
+### 🔹 Key Highlights
 
 * 🔐 Secure Authentication & Authorization
 * 📚 Course Management System
@@ -29,17 +33,17 @@ EduCore Backend System is designed to simulate a real-world backend for an educa
 
 ## 🌐 Base API URL
 
-👉 https://educore-backend.onrender.com/api
+👉 **https://educore-backend.onrender.com/api**
 
 ---
 
 ## 🔐 Authentication APIs
 
-| Method | Endpoint         | Description                |
-| ------ | ---------------- | -------------------------- |
-| POST   | `/auth/register` | Register new user          |
-| POST   | `/auth/login`    | Login user and get token   |
-| GET    | `/auth/profile`  | Get logged-in user profile |
+| Method | Endpoint       | Description                |
+| ------ | -------------- | -------------------------- |
+| POST   | /auth/register | Register new user          |
+| POST   | /auth/login    | Login user and get token   |
+| GET    | /auth/profile  | Get logged-in user profile |
 
 ### 📥 Sample Request (Register)
 
@@ -56,24 +60,24 @@ EduCore Backend System is designed to simulate a real-world backend for an educa
 
 ## 👤 User Management APIs
 
-| Method | Endpoint     | Description           |
-| ------ | ------------ | --------------------- |
-| GET    | `/users`     | Get all users (Admin) |
-| GET    | `/users/:id` | Get user by ID        |
-| PUT    | `/users/:id` | Update user           |
-| DELETE | `/users/:id` | Delete user           |
+| Method | Endpoint   | Description           |
+| ------ | ---------- | --------------------- |
+| GET    | /users     | Get all users (Admin) |
+| GET    | /users/:id | Get user by ID        |
+| PUT    | /users/:id | Update user           |
+| DELETE | /users/:id | Delete user           |
 
 ---
 
 ## 📚 Course Management APIs
 
-| Method | Endpoint       | Description               |
-| ------ | -------------- | ------------------------- |
-| POST   | `/courses`     | Create new course (Admin) |
-| GET    | `/courses`     | Get all courses           |
-| GET    | `/courses/:id` | Get course details        |
-| PUT    | `/courses/:id` | Update course             |
-| DELETE | `/courses/:id` | Delete course             |
+| Method | Endpoint     | Description               |
+| ------ | ------------ | ------------------------- |
+| POST   | /courses     | Create new course (Admin) |
+| GET    | /courses     | Get all courses           |
+| GET    | /courses/:id | Get course details        |
+| PUT    | /courses/:id | Update course             |
+| DELETE | /courses/:id | Delete course             |
 
 ### 📥 Sample Course Object
 
@@ -89,25 +93,25 @@ EduCore Backend System is designed to simulate a real-world backend for an educa
 
 ## 📊 Enrollment & Progress APIs
 
-| Method | Endpoint              | Description        |
-| ------ | --------------------- | ------------------ |
-| POST   | `/enroll`             | Enroll in a course |
-| GET    | `/progress/:userId`   | Get user progress  |
-| PUT    | `/progress/:courseId` | Update progress    |
+| Method | Endpoint            | Description        |
+| ------ | ------------------- | ------------------ |
+| POST   | /enroll             | Enroll in a course |
+| GET    | /progress/:userId   | Get user progress  |
+| PUT    | /progress/:courseId | Update progress    |
 
 ---
 
 ## 🧱 Project Structure
 
-```
+```bash
 EduCore/
 │
-├── controllers/     # Business logic
-├── models/          # Database schemas
-├── routes/          # API routes
-├── middleware/      # Auth & error handling
-├── config/          # DB configuration
-├── server.js        # Entry point
+├── controllers/
+├── models/
+├── routes/
+├── middleware/
+├── config/
+├── server.js
 ```
 
 ---
@@ -115,16 +119,9 @@ EduCore/
 ## ⚙️ Installation & Setup
 
 ```bash
-# Clone the repository
 git clone https://github.com/your-username/educore-backend.git
-
-# Navigate to project
 cd educore-backend
-
-# Install dependencies
 npm install
-
-# Start server
 npm start
 ```
 
@@ -132,7 +129,7 @@ npm start
 
 ## 🔑 Environment Variables
 
-Create a `.env` file and add:
+Create a `.env` file:
 
 ```
 PORT=5000
@@ -144,23 +141,21 @@ JWT_SECRET=your_secret_key
 
 ## 🧪 Testing APIs
 
-Use **Postman** to test all endpoints:
-
-* Add Authorization header:
+Use **Postman**:
 
 ```
-Bearer <your_token>
+Authorization: Bearer <your_token>
 ```
 
 ---
 
 ## 🚀 Features
 
-✅ Secure JWT Authentication
-✅ Role-Based Access Control (Admin/Student)
-✅ RESTful API Design
-✅ Error Handling & Validation
-✅ Scalable Backend Architecture
+* ✅ Secure JWT Authentication
+* ✅ Role-Based Access Control (Admin/Student)
+* ✅ RESTful API Design
+* ✅ Error Handling & Validation
+* ✅ Scalable Backend Architecture
 
 ---
 
@@ -168,22 +163,22 @@ Bearer <your_token>
 
 * Proper HTTP status codes
 * Centralized error middleware
-* Validation for required fields
+* Input validation
 
 ---
 
 ## 📈 Future Improvements
 
-* ⚡ Redis caching for performance
+* ⚡ Redis caching
 * 📧 Email notifications
-* 📊 Advanced analytics dashboard
-* 🧵 Background jobs (queues)
+* 📊 Analytics dashboard
+* 🧵 Background jobs
 
 ---
 
 ## 🤝 Contribution
 
-Feel free to fork, improve, and contribute to this project!
+Feel free to fork and contribute.
 
 ---
 
