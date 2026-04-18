@@ -1,198 +1,197 @@
 # 🎓 EduCore Backend System
 
-<p align="center">
-  🚀 Scalable Backend for Learning Management System (LMS)
-</p>
-
-<p align="center">
-  <img src="https://img.shields.io/badge/Node.js-Backend-green?style=for-the-badge&logo=node.js" />
-  <img src="https://img.shields.io/badge/Express.js-Framework-black?style=for-the-badge" />
-  <img src="https://img.shields.io/badge/MongoDB-Database-green?style=for-the-badge&logo=mongodb" />
-  <img src="https://img.shields.io/badge/JWT-Authentication-blue?style=for-the-badge" />
-</p>
+🚀 A scalable and modular backend system for a Learning Management Platform (LMS), built using Node.js and Express.js. This project handles user authentication, course management, and student progress tracking with clean architecture and RESTful APIs.
 
 ---
 
-## 📖 Overview
+## 📌 Project Overview
 
-EduCore is a **backend system for an educational platform** designed to manage users, courses, and student progress efficiently.
-It follows a **modular architecture** and implements **RESTful APIs** with secure authentication.
+EduCore Backend System is designed to simulate a real-world backend for an educational platform. It focuses on:
 
----
-
-## 🌐 Live API
-
-🔗 **Base URL:**
-`https://educore-backend.onrender.com/api`
+* 🔐 Secure Authentication & Authorization
+* 📚 Course Management System
+* 📊 Student Progress Tracking
+* ⚡ Optimized API Performance
+* 🧱 Scalable and Maintainable Code Structure
 
 ---
 
-## ⚙️ Tech Stack
+## 🛠️ Tech Stack
 
-| Layer      | Technology          |
-| ---------- | ------------------- |
-| Backend    | Node.js, Express.js |
-| Database   | MongoDB             |
-| Auth       | JWT                 |
-| Testing    | Postman             |
-| Deployment | Render              |
+* 🟢 **Node.js** – Backend runtime
+* 🚂 **Express.js** – Web framework
+* 🍃 **MongoDB** – Database
+* 🔑 **JWT (JSON Web Token)** – Authentication
+* 🧪 **Postman** – API testing
+* ☁️ **Render** – Deployment
 
 ---
 
-## 📂 Project Structure
+## 🌐 Base API URL
 
-```bash
+👉 https://educore-backend.onrender.com/api
+
+---
+
+## 🔐 Authentication APIs
+
+| Method | Endpoint         | Description                |
+| ------ | ---------------- | -------------------------- |
+| POST   | `/auth/register` | Register new user          |
+| POST   | `/auth/login`    | Login user and get token   |
+| GET    | `/auth/profile`  | Get logged-in user profile |
+
+### 📥 Sample Request (Register)
+
+```json
+{
+  "name": "Suresh",
+  "email": "suresh@gmail.com",
+  "password": "123456",
+  "role": "student"
+}
+```
+
+---
+
+## 👤 User Management APIs
+
+| Method | Endpoint     | Description           |
+| ------ | ------------ | --------------------- |
+| GET    | `/users`     | Get all users (Admin) |
+| GET    | `/users/:id` | Get user by ID        |
+| PUT    | `/users/:id` | Update user           |
+| DELETE | `/users/:id` | Delete user           |
+
+---
+
+## 📚 Course Management APIs
+
+| Method | Endpoint       | Description               |
+| ------ | -------------- | ------------------------- |
+| POST   | `/courses`     | Create new course (Admin) |
+| GET    | `/courses`     | Get all courses           |
+| GET    | `/courses/:id` | Get course details        |
+| PUT    | `/courses/:id` | Update course             |
+| DELETE | `/courses/:id` | Delete course             |
+
+### 📥 Sample Course Object
+
+```json
+{
+  "title": "Data Structures",
+  "description": "Learn DSA concepts",
+  "instructor": "John Doe"
+}
+```
+
+---
+
+## 📊 Enrollment & Progress APIs
+
+| Method | Endpoint              | Description        |
+| ------ | --------------------- | ------------------ |
+| POST   | `/enroll`             | Enroll in a course |
+| GET    | `/progress/:userId`   | Get user progress  |
+| PUT    | `/progress/:courseId` | Update progress    |
+
+---
+
+## 🧱 Project Structure
+
+```
 EduCore/
 │
 ├── controllers/     # Business logic
-├── models/          # MongoDB schemas
+├── models/          # Database schemas
 ├── routes/          # API routes
 ├── middleware/      # Auth & error handling
-├── config/          # DB config
+├── config/          # DB configuration
 ├── server.js        # Entry point
 ```
 
 ---
 
-# 🔐 Authentication APIs
-
-```http
-POST   /api/auth/register
-POST   /api/auth/login
-GET    /api/auth/profile
-```
-
-### 📌 Description
-
-* Register new users
-* Login and receive JWT token
-* Fetch authenticated user profile
-
----
-
-# 👤 User APIs
-
-```http
-GET    /api/users
-GET    /api/users/:id
-PUT    /api/users/:id
-DELETE /api/users/:id
-```
-
-### 📌 Description
-
-* Manage users (Admin only)
-* Update and delete users
-* Fetch user details
-
----
-
-# 📚 Course APIs
-
-```http
-POST   /api/courses
-GET    /api/courses
-GET    /api/courses/:id
-PUT    /api/courses/:id
-DELETE /api/courses/:id
-```
-
-### 📌 Description
-
-* Create and manage courses
-* Fetch all available courses
-* Update/delete courses
-
----
-
-# 📊 Enrollment & Progress APIs
-
-```http
-POST   /api/enroll
-GET    /api/progress/:userId
-PUT    /api/progress/:courseId
-```
-
-### 📌 Description
-
-* Enroll users in courses
-* Track student progress
-* Update course completion
-
----
-
-## 🔑 Authentication
-
-All protected routes require:
+## ⚙️ Installation & Setup
 
 ```bash
-Authorization: Bearer <token>
-```
-
----
-
-## 🚀 Getting Started
-
-```bash
-# Clone repo
+# Clone the repository
 git clone https://github.com/your-username/educore-backend.git
+
+# Navigate to project
+cd educore-backend
 
 # Install dependencies
 npm install
 
-# Run server
+# Start server
 npm start
 ```
 
 ---
 
-## 🔒 Environment Variables
+## 🔑 Environment Variables
 
-Create `.env` file:
+Create a `.env` file and add:
 
-```env
+```
 PORT=5000
-MONGO_URI=your_mongodb_uri
-JWT_SECRET=your_secret
+MONGO_URI=your_mongodb_connection
+JWT_SECRET=your_secret_key
 ```
 
 ---
 
-## 🧪 API Testing
+## 🧪 Testing APIs
 
-Use **Postman** or any API client:
+Use **Postman** to test all endpoints:
 
-* Add Bearer Token
-* Test endpoints
-* Validate responses
+* Add Authorization header:
 
----
-
-## ✨ Features
-
-✔️ JWT Authentication
-✔️ Role-Based Access (Admin / Student)
-✔️ RESTful API Design
-✔️ Error Handling Middleware
-✔️ Scalable Code Structure
+```
+Bearer <your_token>
+```
 
 ---
 
-## 📈 Future Enhancements
+## 🚀 Features
 
-* 🔥 Redis Caching
-* 📧 Email Notifications
-* 📊 Analytics Dashboard
-* ⚡ Performance Optimization
-
----
-
-## 👨‍💻 Author
-
-**Suresh Kumar**
+✅ Secure JWT Authentication
+✅ Role-Based Access Control (Admin/Student)
+✅ RESTful API Design
+✅ Error Handling & Validation
+✅ Scalable Backend Architecture
 
 ---
 
-<p align="center">
-  ⭐ Star this repo if you found it useful!
-</p>
+## 🐞 Error Handling
+
+* Proper HTTP status codes
+* Centralized error middleware
+* Validation for required fields
+
+---
+
+## 📈 Future Improvements
+
+* ⚡ Redis caching for performance
+* 📧 Email notifications
+* 📊 Advanced analytics dashboard
+* 🧵 Background jobs (queues)
+
+---
+
+## 🤝 Contribution
+
+Feel free to fork, improve, and contribute to this project!
+
+---
+
+## 📬 Contact
+
+👤 Suresh Kumar
+📧 [suresh@example.com](mailto:suresh@example.com)
+
+---
+
+⭐ If you like this project, give it a star!
